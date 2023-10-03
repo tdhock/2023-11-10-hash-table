@@ -1,0 +1,7 @@
+Demo code for hash table in C
+
+[[file:first_letter.c]] implements a simple hash function based on the
+first letter of a string.
+
+[[file:avoid_collisions.c]] implements some more complicated logic to
+avoid collisions.
