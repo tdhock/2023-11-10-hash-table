@@ -1,4 +1,27 @@
-Demo code for hash table in C
+*** Lecture notes
+
+Reading Ch11 of CLRS time complexity results, using collision
+resolution by chaining, with doubly-linked lists, and load factor
+alpha=N/M, with N number of items stored, and M number of
+slots/buckets/alvéoles.
+
+| operation   | best | average    | worst |
+|-------------+------+------------+-------|
+| insert(ptr) | O(1) | O(1+alpha) | O(N)  |
+| search(key) | O(1) |            | O(N)  |
+| delete(ptr) | O(1) |            | O(N)  |
+
+Average case analysis: simple uniform hashing (any item is equally
+likely to hash into any of the M slots), and if N=O(M) then alpha=O(1)
+as is average case.
+
+TODO examples of hash functions. division, multiplication.
+
+universal hashing. 
+
+perfect hashing.
+
+*** Demo code for hash table in C
 
 [[file:first_letter.c]] implements a simple hash function based on the
 first letter of a string.

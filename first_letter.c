@@ -1,26 +1,17 @@
 #include <stdio.h>
-#define PRINT(NAME) printf(#NAME"=%f\n", get(age_table,#NAME));
-#define TABLE_SIZE 100
+#define TABLE_SIZE 5
 int hash(const char *string){
-    return string[0] % TABLE_SIZE;
-}
-void set(double *table, const char* key, double value){
-    int index = hash(key);
-    if(table[index]>0)printf("collision:%s/%d prev value=%f, new value=%f\n",key,index,table[index],value);
-    table[index] = value;
-}
-double get(double *table, const char* key){
-    int index = hash(key);
-    return table[index];
+    int big = string[0];
+    int index = big % TABLE_SIZE;
+    printf("%s %d -> %d / %d\n", string, big, index, TABLE_SIZE);
+    return index;
 }
 int main(void){
-    double age_table[TABLE_SIZE];
-    for(int i=0; i<TABLE_SIZE;i++)age_table[i]=-100;
-    set(age_table, "toby", 39);
-    set(age_table, "maude", 40);
-    set(age_table, "tim", 6);
-    PRINT(toby);
-    PRINT(maude);
-    PRINT(tim);
+    int tel[TABLE_SIZE];
+    tel[hash("Alice")]   = 3264277;
+    tel[hash("Vincent")] = 8329881;
+    tel[hash("Maude")]   = 9290028;
+    char key[] = "Vincent";
+    printf("name=%s tel=%d\n", key, tel[hash(key)]);
     return 0;
 }
